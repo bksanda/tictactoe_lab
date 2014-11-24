@@ -27,14 +27,14 @@ button {
 }
 
 .bottom {
-	border-top: 1px dashed orange;
+	border-top: 1px dotted orange;
 }
 
 .left {
-	border-right: 1px dashed orange;
+	border-right: 1px dotted orange;
 }
 
 .right {
-	border-left: 1px dashed orange;
+	border-left: 1px dotted orange;
 }
 

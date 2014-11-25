@@ -1,38 +1,57 @@
-document.addEventListener('DOMContentLoaded', function()
-{	
+//let's jQuery this!
 
-	var boxes = document.querySelectorAll(".box");
+var winner = 	[[0,1,2],
+				[3,4,5],
+				[6,7,8],
+				[0,4,8],
+				[2,4,6],
+				[1,4,7],
+				[2,5,8],
+				[0,3,6]];
+
+$(function(){
+	
 	var count = 0;
-	var resetGame = document.getElementById("button");
+	var box = $('.box');
+	
+	$('.box').on('click',function(){
 
-	//tics and tacs
-	for(var i=0; i<boxes.length; i++) 
-	{
-		boxes[i].addEventListener('click',function()
-		{
-			
-			if (this.classList.contains('played') === false) 
+	if ($(this).hasClass('played') === false) 
 			{
 				count++
-				this.innerText = (count%2==1) ? "X":"O";
-				this.classList.add('played')
-				this.style.color = (count%2==1) ? "#FFFF00":"white";
+				$(this).text((count%2==1) ? "X":"O");
+				$('.counter').text("It is turn: " + ((count%2==1) ? "O":"X"));
+				$(this).addClass('played');
+				$(this).css('color',(count%2==1) ? "#FFFF00":"white");
 			} else {
 				alert("Oops! You've already played here!");
 			}
-		
-		});
+			boss();
 
-	}	
-
-	//refreshes the page to start over
-	resetGame.addEventListener('click',function(){
-		for (var i = 0; i<boxes.length; i++) {
-			window.location.reload();		
-		}
+	})
+	
+	//RESETS THE GAME
+	$('.btn').on('click',function(){
+		$('.box').text("");
+		$('.box').removeClass('played');
+		count=0
+		$('.counter').text("It is turn: X");
 	})
 
-});
+
+	//WHO'S THE BOSS?
+	var boss = function() {
+		for(var i=0; i < winner.length; i++){
+			if (box[winner[i][0]].innerText!="" && box[winner[i][0]].innerText === box[winner[i][1]].innerText && 
+				box[winner[i][1]].innerText === box[winner[i][2]].innerText) {
+				alert("You Win!");
+				}
+			}
+
+		}
+
+
+})
 
 
 

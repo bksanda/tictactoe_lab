@@ -13,8 +13,14 @@ $(function(){
 	
 	var count = 0;
 	var box = $('.box');
+	var played = $('.played');
+	var gameOver = false;
 	
 	$('.box').on('click',function(){
+	if (gameOver) {
+		alert('Game is over, you can restart to play again.');
+		return;
+	}
 
 	if ($(this).hasClass('played') === false) 
 			{
@@ -36,6 +42,8 @@ $(function(){
 		$('.box').removeClass('played');
 		count=0
 		$('.counter').text("It is turn: X");
+		gameOver = false;
+		$('body').css('background', '#00FA9A')
 	})
 
 
@@ -44,14 +52,12 @@ $(function(){
 		for(var i=0; i < winner.length; i++){
 			if (box[winner[i][0]].innerText!="" && box[winner[i][0]].innerText === box[winner[i][1]].innerText && 
 				box[winner[i][1]].innerText === box[winner[i][2]].innerText) {
-				alert("You Win!");
-				}
+				alert("You Win! You Da Boss!");
+				gameOver = true;
+				$('body').css('background', '#00BFFF');			
 			}
-
 		}
-
+	}
 
 })
-
-
 

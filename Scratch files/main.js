@@ -10,20 +10,19 @@ var winner = 	[[0,1,2],
 				[0,3,6]];
 
 $(function(){
-
+	
 	var count = 0;
 	var box = $('.box');
 	var played = $('.played');
 	var gameOver = false;
-	// var winCount = 0;
-
+	
 	$('.box').on('click',function(){
 	if (gameOver) {
 		alert('Game is over, you can restart to play again.');
 		return;
 	}
 
-	if ($(this).hasClass('played') === false)
+	if ($(this).hasClass('played') === false) 
 			{
 				count++
 				$(this).text((count%2==1) ? "X":"O");
@@ -36,7 +35,7 @@ $(function(){
 			boss();
 
 	})
-
+	
 	//RESETS THE GAME
 	$('.btn').on('click',function(){
 		$('.box').text("");
@@ -49,23 +48,13 @@ $(function(){
 
 
 	//WHO'S THE BOSS?
-	var xWinCount=0;
-	var oWinCount=0
 	var boss = function() {
 		for(var i=0; i < winner.length; i++){
-			if (box[winner[i][0]].innerText!="" && box[winner[i][0]].innerText === box[winner[i][1]].innerText &&
+			if (box[winner[i][0]].innerText!="" && box[winner[i][0]].innerText === box[winner[i][1]].innerText && 
 				box[winner[i][1]].innerText === box[winner[i][2]].innerText) {
-				if (box[winner[i][0]].innerText.toLowerCase() === "x"){
-					xWinCount++;
-					$('.x-wins').text(box[winner[i][0]].innerText + " has won " + xWinCount + " times.")
-				}
-				if (box[winner[i][0]].innerText.toLowerCase() === "o"){
-					oWinCount++;
-					$('.o-wins').text(box[winner[i][0]].innerText + " has won " + oWinCount + " times.")
-				}
+				alert("You Win! You Da Boss!");
 				gameOver = true;
-				$('body').css('background', '#00BFFF');
-				alert("You Win! " + box[winner[i][0]].innerText + ", You Da Boss!");
+				$('body').css('background', '#00BFFF');			
 			}
 		}
 	}

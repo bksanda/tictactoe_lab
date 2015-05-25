@@ -1,3 +1,6 @@
+###2014-2015, WDI COURSE ASSIGNMENT
+***
+
 subl#Week 1 Project - Tic Tac Toe
 
 **Objective:** Build a tic taco game in HTML and pure javascript.

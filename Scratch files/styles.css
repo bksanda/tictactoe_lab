@@ -1,7 +1,7 @@
 h1 {
 	font-style: bold;
 	font-family: 'Rock Salt', cursive;
-	font-size: 35px;
+	font-size: 50px;
 	color: magenta;
 	margin-bottom: 50px;
 
@@ -19,10 +19,9 @@ button {
 
 .box {
 	height: 0px;
-	padding-top: 20%;
 	padding-bottom: 33%;
 	text-align: center;
-}
+} 
 
 .top {
 	border-bottom: 1px dotted orange;
